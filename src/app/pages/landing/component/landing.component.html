@@ -1,0 +1,55 @@
+<div class="body" style="text-align:center">
+  <h1>
+    Welcome to {{title}} !!
+  </h1>
+  <div class="wrapper">
+    <div *ngFor="let item of arr"> 
+      <span class="title">{{item.title}}</span>
+      <br>
+      {{item.description}} <br>
+      <img class="news-image" src={{item.urlToImage}}>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    
+  <div class="row">
+    <div class="col-sm-6 " style="background-color:#e0dee6;">
+      <div *ngIf="!screen2">
+      <div *ngFor="let machine of leftPannelList">
+        <button type="button" class="btn btn-primary mt5" (click)="leftPannelButton(machine)">{{machine}}</button>
+ </div>
+</div>
+<div *ngIf="screen2">
+  <div class="mlmax subHead">
+   <div class="mt5 subHead">{{diplayVaue}}</div> 
+    <div *ngFor="let sub of LeftPannelButton">
+        <button type="button" class="btn btn-primary mt5" >{{sub}}</button>
+ </div>
+</div>
+</div>
+
+    </div>
+    <div class="col-sm-6 " style="background-color:#f0f5c4;">
+        <div *ngIf="!screenright2">    
+      <div  *ngFor="let metric of metrics"> 
+        <div class="progress mt15 ">       
+     <div class="  progress-bar bg-info progress-bar-striped progress-bar-animated" [style.width]="(metric.value/100)*100 + '%'" (click)="rightPannelButton()">{{metric.name}} </div>
+     <!-- <mdb-progress [value]="metric.value" min="0" max="100" type="success" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{metric.name}} %</mdb-progress>-->
+    </div>
+ </div>
+
+
+    </div>
+    <div *ngIf="screenright2">
+        <h2>Parameter list</h2>
+        <ul class="list-group">
+          <li class="list-group-item">First Parameter</li>
+          <li class="list-group-item">Second Parameter</li>
+          <li class="list-group-item">Third Parameter</li>
+        </ul>
+    </div>
+  
+</div>
+    
